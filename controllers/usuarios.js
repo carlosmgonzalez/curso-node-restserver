@@ -80,7 +80,9 @@ const usuariosDelete = async (req = request, res = response) => {
 
   // const usuarioD.estado = false
 
-  res.status(200).json(usuario);
+  res.status(200).json({
+    usuario
+  });
 };
 
 const usuariosPatch = (req, res = response) => {
