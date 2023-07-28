@@ -39,7 +39,7 @@ const login = async (req, res = response) => {
     // Generar el JWT
     const token = await generarJWT(usuario.id);
 
-    res.json({
+    res.status(200).json({
       usuario,
       token
     });
@@ -62,8 +62,6 @@ const googleSingIn = async (req = request, res = response) => {
     const {correo, nombre, img} = await googleVerify(id_token);
 
     let usuario = await Usuario.findOne({correo});
-
-    console.log(!usuario, nombre);
 
     if(!usuario) {
       const data = {
